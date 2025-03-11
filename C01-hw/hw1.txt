@@ -1,0 +1,161 @@
+use domasno1
+'switched to db domasno1'
+
+1.
+
+db.createCollection("cars")
+{ ok: 1 }
+db.cars.insertOne({marka: "Volkswagen", model: "Passat", godina: 2013})
+{
+  acknowledged: true,
+  insertedId: ObjectId("67cf3dfbae152d65d7394496")
+}
+
+db.cars.find()
+{
+  _id: ObjectId("67cf3dfbae152d65d7394496"),
+  marka: 'Volkswagen',
+  model: 'Passat',
+  godina: 2013
+}
+
+db.cars.insertMany([{marka: "Seat", model: "Altea", godina: 2010}, 
+{marka: "Zastava", model: "101", godina: 1980}, 
+{marka: "Fiat", model: "Tipo", godina: 2007}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("67cf4100ae152d65d7394497"),
+    '1': ObjectId("67cf4100ae152d65d7394498"),
+    '2': ObjectId("67cf4100ae152d65d7394499")
+  }
+}
+
+
+2.
+
+db.createCollection("books")
+{ ok: 1 }
+db.books.insertMany([
+    {title: "Colected Maxims and Other Reflections", author: "La Rochefoucauld", publicationYear: 2008},
+    {title: "The 48 Laws of Power", author: "Robert Greene", publicationYear: 2000},
+    {title: "Xenophon’s Cyrus the Great: The Arts of Leadership and War ", author: "Xenophon", publicationYear: 2007},
+    {title: "Letters from a Self-Made Merchant to His Son", author: "George Horace Lorimer", publicationYear: 2014},
+    {title: "Models of my Life ", author: "Herbert Simon", publicationYear: 1996}
+])
+
+  acknowledged: true,
+
+
+
+3. 
+db.createCollection("director_Oscars2025")
+{ ok: 1 }
+db.director_Oscars2025.insertMany([{nominee_1: "Sean Baker", movie: "Anora"}, 
+      {nominee_2: "James Mangold", movie: "A Complete Unknown"}, 
+      {nominee_3: "Brady Corbet", movie: "The Brutalist"}, 
+      {nominee_4: "Jacques Audiard", movie: "Emilia Pérez"}, 
+      {nominee_5: "Coralie Fargeat", movie: "The Substance"}
+])
+
+db.director_Oscars2025.updateOne({nominee_1: "Sean Baker"}, {$set: {isWinner: true}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+4.
+db.createCollection("users")
+{ ok: 1 }
+db.users.insertMany([ {first_name: "Jovana", last_name: "Spirkovska", isOnline: true}, 
+{first_name: "Magdalena", last_name: "Nikolova", isOnline: false}, {first_name: "Simon", 
+last_name: "Kuzel", isOnline: true} ])
+
+
+5.
+db.createCollection("средни_училишта")
+{ ok: 1 }
+db.средни_училишта.insertOne({назив: "Јосип Броз Тито", град: "Скопје", број_на_ученици: 250, јазична_паралелка: true})
+db.средни_училишта.insertMany([ 
+ {назив: "Раде Јовчевски Корчагин", град: "Скопје", број_на_ученици: 170, јазична_паралелка: false}, 
+ {назив: "Орце Николов", град: "Скопје", број_на_ученици: 260, јазична_паралелка: true},
+ {назив: "Марија Кири Склодовска", град: "Скопје", број_на_ученици: 400, јазична_паралелка: false},
+ {назив: "Илија Николовски Луј", град: "Скопје", број_на_ученици: 125, јазична_паралелка: false}   
+])
+
+
+6.
+db.createCollection("diamonds")
+{ ok: 1 }
+db.diamonds.insertMany([
+    {name: "Moussaieff Red Diamond", color: "red", carats: 5.11},
+    {name: "Hope Diamond", color: "blue", carats: 45.52},
+    {name: "Dresden Green Diamond", color: "green", carats: 6.28},
+    {name: "Pumpkin", color: "orange", carats: 5.54},
+    {name: "Pink Star", color: "pink", carats: 59.6},
+])
+
+
+7.
+db.createCollection("butterfly_classification")
+{ ok: 1 }
+db.butterfly_classification.insertMany([
+    {family: "Hesperiidae", knownAs: "Skippers", worldwideSpecies: 3000},
+    {family: "Lycaenidae", knownAs: "Blues, Hairstreaks and Coppers.", worldwideSpecies: 5000},
+    {family: "Nymphalidae", knownAs: "Brush-footed", worldwideSpecies: 5000},
+    {family: "Papilionidae", knownAs: "Swallowtail", worldwideSpecies: 600},
+    {family: "Pieridae", knownAs: "Yellows and Whites", worldwideSpecies: 1000},
+    {family: "Riodinidae", knownAs: "Metalmarks", worldwideSpecies: 1000}
+])
+
+
+8.
+db.createCollection("fruits")
+{ ok: 1 }
+db.fruits.insertMany([
+  {name: "Pineapple", growsOn: "ground", climate: "tropical" },
+  {name: "Kiwi", growsOn: "vines", climate: "temperate" },
+  {name: "Apricot", growsOn: "tree", climate: "temperate" },
+  {name: "Strawberry", growsOn: "ground", climate: "temperate" },
+  {name: "Orange", growsOn: "tree", climate: "tropical and subtropical" },
+  {name: "Mango", growsOn: "tree", climate: "tropical" },
+  {name: "Pear", growsOn: "tree", climate: "temperate and subtropical" }
+])
+
+
+
+
+9.
+db.createCollection("pets")
+{ ok: 1 }
+db.pets.insertMany([
+  {animal: "dog", lifeSpan: "10 to 13 years", trainable: true},
+  {animal: "cat", lifeSpan: "13 to 20 years", trainable: true},
+  {animal: "parrot", lifeSpan: "40 to 60 years" , trainable: true},
+  {animal: "fish", lifeSpan: "3 to 5 years", trainable: false},
+  {animal: "hamster", lifeSpan: "2 to 3 years", trainable: true},
+  {animal: "snake", lifeSpan: "10 to 30 years", trainable: false},
+])
+
+
+
+
+10.
+db.createCollection("македонски_општини")
+{ ok: 1 }
+db.македонски_општини.insertMany([
+  {назив: "Битола", местоположба: "јужна Македонија", површина: "788 km²", жители: 85.164},
+  {назив: "Охрид", местоположба: "југозападна Македонија", површина: "389.9 km²", жители: 51.428},
+  {назив: "Куманово", местоположба: "северна Македонија", површина: "509.5 km²", жители:  98.104},
+  {назив: "Велес", местоположба: "централна Македонија", површина: "427.4 km²", жители: 40.664},
+  {назив: "Крива Паланка", местоположба: "североисточна Македонија", површина: "480.8 km²", жители: 18.059},
+  {назив: "Дебар", местоположба: "западна Македонија", површина: "145.7 km²", жители: 15.412},
+  {назив: "Берово", местоположба: "источна Македонија", површина: "598.7 km²", жители: 5.850},
+  {назив: "Струмица", местоположба: "југоисточна Македонија", површина: "321.5 km²", жители: 49.995},
+  {назив: "Тетово", местоположба: "северозападна Македонија", површина: "261.9 km²", жители: 84.770}
+])
+    
