@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Movie = require("./movies");
 
-const URI = "mongodb+srv://teasmi:IlinBistra6@cluster06.25ug7.mongodb.net/gr-4007?retryWrites=true&w=majority&appName=Cluster06";
+const URI = "mongodb+srv://user:password@cluster06.25ug7.mongodb.net/gr-4007?retryWrites=true&w=majority&appName=Cluster06";
 
 mongoose
   .connect(URI)
